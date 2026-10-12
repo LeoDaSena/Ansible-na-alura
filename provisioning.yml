@@ -1,9 +1,23 @@
 ---
-- host: all
-  task: 
-    - name: Install apache
+- hosts: all
+  tasks:
+    - name: Install dependencias 
       ansible.builtin.apt:
-        name: apache2
+        pkg: 
+        - apache2
+        - ghostscript
+        - libapache2-mod-php
+        - mysql-server
+        - php
+        - php-bcmath
+        - php-curl
+        - php-imagick
+        - php-intl
+        - php-json
+        - php-mbstring
+        - php-mysql
+        - php-xml
+        - php-zip
         state: latest
         update_cache: yes
-        
+      become: yes
