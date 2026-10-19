@@ -21,3 +21,10 @@
         state: latest
         update_cache: yes
       become: yes
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /srv/www
+        state: directory
+        owner: www-data
+        group: www-data
+      become: yes
